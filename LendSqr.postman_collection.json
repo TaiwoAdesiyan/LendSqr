@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "783fdb56-549e-4507-a6a9-b671f4dc1c33",
+		"name": "LendSqr",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27227817"
+	},
+	"item": [
+		{
+			"name": "CREATE USER",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody)",
+							"pm.test(\"Status code is 201\", function () {",
+							"pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Name Returned is - morpheus\", function () {",
+							"if(jsonData.name != undefined){",
+							"pm.expect(jsonData.name, 'The name returned is : ' + jsonData.name + ' and not morpheus').to.eql(\"morpheus\");",
+							"}",
+							"else{",
+							"throw new Error('The name parameter was not returned as part of the response object')",
+							"}",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"morpheus\",\n\"job\": \"leader\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/users",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Single User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody)",
+							"pm.test(\"Status code is 200\", function () {",
+							"pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Name Returned is - Janet\", function () {",
+							"if(jsonData.data.first_name != undefined){",
+							"pm.expect(jsonData.data.first_name, 'The name returned is : ' + jsonData.data.first_name + ' and not Janet').to.eql(\"Janet\");",
+							"}",
+							"else{",
+							"throw new Error('The first_name parameter was not returned as part of the response object')",
+							"}",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/users/2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody)",
+							"pm.test(\"Status code is 200\", function () {",
+							"pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Name Returned is - Dean\", function () {",
+							"if(jsonData.name != undefined){",
+							"pm.expect(jsonData.name, 'The name returned is : ' + jsonData.name + ' and not Dean').to.eql(\"Dean\");",
+							"}",
+							"else{",
+							"throw new Error('The name parameter was not returned as part of the response object')",
+							"}",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Dean\",\n    \"job\": \"Quality Engineer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/users/2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
