@@ -21,6 +21,7 @@
 							"pm.test(\"Name Returned is - Dean\", function () {",
 							"if(jsonData.name != undefined){",
 							"pm.expect(jsonData.name, 'The name returned is : ' + jsonData.name + ' and not Dean').to.eql(\"Dean\");",
+							"pm.environment.set('newUserName',jsonData.name)",
 							"}",
 							"else{",
 							"throw new Error('The name parameter was not returned as part of the response object')",
@@ -124,7 +125,7 @@
 							"",
 							"pm.test(\"Name Returned is - Dean\", function () {",
 							"if(jsonData.name != undefined){",
-							"pm.expect(jsonData.name, 'The name returned is : ' + jsonData.name + ' and not Dean').to.eql(\"Dean\");",
+							"pm.expect(jsonData.name, 'The name returned is : ' + jsonData.name + ' and not Dean').to.eql(pm.environment.get(\"newUserName\"));",
 							"}",
 							"else{",
 							"throw new Error('The name parameter was not returned as part of the response object')",
@@ -141,7 +142,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Dean\",\n    \"job\": \"Quality Engineer\"\n}",
+					"raw": "{\n    \"name\": \"Dean\",\n    \"job\": \"Senior Quality Assurance Engineer\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

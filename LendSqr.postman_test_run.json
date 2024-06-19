@@ -1,0 +1,139 @@
+{
+	"id": "4a688a00-563c-4304-80d1-406ccfe4ff23",
+	"name": "LendSqr",
+	"timestamp": "2024-06-19T20:14:45.224Z",
+	"collection_id": "27227817-783fdb56-549e-4507-a6a9-b671f4dc1c33",
+	"folder_id": 0,
+	"environment_id": "27227817-ec16b6e1-6159-47a9-814e-46c6022acab3",
+	"totalPass": 5,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-06-19T20:14:44.489Z",
+	"totalFail": 2,
+	"results": [
+		{
+			"id": "a3beefd6-c03c-4d16-bcb5-3f97010317ed",
+			"name": "CREATE USER",
+			"url": "https://reqres.in/api/users",
+			"time": 120,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Name Returned is - Dean": true,
+				"User ID is Generated": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name Returned is - Dean": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User ID is Generated": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				120
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Name Returned is - Dean": true,
+					"User ID is Generated": true
+				}
+			]
+		},
+		{
+			"id": "9219f1fb-8f5b-486e-a358-52135280092c",
+			"name": "List Single User",
+			"url": "https://reqres.in/api/users/199",
+			"time": 63,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Name Returned is - Dean": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Name Returned is - Dean": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				63
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Name Returned is - Dean": false
+				}
+			]
+		},
+		{
+			"id": "a951f1a6-f971-43f9-89ba-0e90bfabd5b0",
+			"name": "Update",
+			"url": "https://reqres.in/api/users/199",
+			"time": 63,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Name Returned is - Dean": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name Returned is - Dean": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				63
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Name Returned is - Dean": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 246,
+	"collection": {
+		"requests": [
+			{
+				"id": "a3beefd6-c03c-4d16-bcb5-3f97010317ed",
+				"method": "POST"
+			},
+			{
+				"id": "9219f1fb-8f5b-486e-a358-52135280092c",
+				"method": "GET"
+			},
+			{
+				"id": "a951f1a6-f971-43f9-89ba-0e90bfabd5b0",
+				"method": "PUT"
+			}
+		]
+	}
+}
